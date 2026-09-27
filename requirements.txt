@@ -5,3 +5,4 @@ fastapi>=0.111.0
 uvicorn>=0.30.0
 pytest>=8.0.0
 pytest-asyncio>=0.23.0
+manim>=0.18.0

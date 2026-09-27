@@ -39,7 +39,7 @@ Test, benchmark, and simulate Jev live in your browser:
 
 ## 🏗️ Architecture Flow Diagram
 
-![SRE Architecture Flow](docs/sre_architecture_flow_ai.png)
+![TypeSafe AI Jev: System 1 Dual-Process Architecture](docs/jev_architecture_flow.png)
 
 ```mermaid
 graph TD
@@ -77,6 +77,34 @@ graph TD
     style CONF fill:#f59e0b,stroke:#d97706,color:#0f172a,stroke-width:2px;
     style OUT_FAST fill:#10b981,stroke:#059669,color:#ffffff,stroke-width:2px;
     style ESC fill:#8b5cf6,stroke:#7c3aed,color:#ffffff,stroke-width:2px;
+```
+
+---
+
+## 🎬 3Blue1Brown / Manim Programmatic Video Generator
+
+This repository includes a production-grade **Manim** (`manim_system1_flow.py`) programmatic video animation script that renders a 60fps technical visualization of the Dual-Process Cognitive Architecture:
+
+*   **Pulsing Vector Packets:** Animated real-time packet trajectories traveling from the High-Velocity Input Stream into Jev.
+*   **78ms Jev Reflex Glow:** Particle flash simulating non-autoregressive matrix evaluation with zero conversational latency.
+*   **Dynamic RLCD Gauge:** Calibrated probability meter animating to `0.965` (High Confidence) vs `0.542` (Ambiguous Edge Case).
+*   **Dual Branching Split:** Instant green photon trajectory to the *Fast Deterministic Path* or yellow/purple escalation wave to *System 2 Deliberative Reasoning*.
+*   **FinOps & Latency ROI Banner:** Automated summary cards showing the 36x latency boost and 99.38% compute cost reduction.
+
+### 🎥 How to Render the 4K Animation Locally
+
+```bash
+# 1. Install Manim community edition
+pip install manim
+
+# 2. Render fast 480p preview (quick review)
+manim -pql manim_system1_flow.py JevDualProcessArchitectureScene
+
+# 3. Render 1080p 60fps Full HD (production quality)
+manim -pqh manim_system1_flow.py JevDualProcessArchitectureScene
+
+# 4. Render Ultra HD 4K 60fps (keynote / presentation quality)
+manim -pqk manim_system1_flow.py JevDualProcessArchitectureScene
 ```
 
 ---
@@ -121,11 +149,12 @@ tp-typesafe-jev/
 ├── README.md                              # Technical guide & architectural documentation
 ├── SECURITY.md                            # Vulnerability disclosure policy
 ├── CHANGELOG.md                           # Version release history
-├── requirements.txt                       # Python dependencies (typesafe-ai, pydantic, langgraph)
-├── package.json                           # Node.js dependencies (@typesafe-ai/jev-node, zod)
+├── requirements.txt                       # Python dependencies (typesafe-ai, pydantic, langgraph, manim)
+├── package.json                           # Node.js dependencies (@typesafe-ai/jev-node, zod, fastify)
+├── manim_system1_flow.py                  # 3Blue1Brown/Manim programmatic 4K video animation
 ├── .gitignore                             # Git ignore rules
 ├── docs/
-│   └── sre_architecture_flow_ai.png      # AI/MLOps SRE domain topology flow
+│   └── jev_architecture_flow.png         # High-resolution System 1 Dual-Process Architecture diagram
 ├── scripts/
 │   └── validate.sh                        # Operational verification & lint test script
 └── primary_config/
@@ -133,6 +162,7 @@ tp-typesafe-jev/
     ├── system1_router.ts                  # Sub-100ms Fastify TypeScript router middleware
     ├── hybrid_agent_graph.py              # LangGraph dual-process cognitive state graph
     ├── k8s-jev-sidecar.yaml               # Kubernetes deployment with IPC socket sidecar
+    ├── manim_system1_flow.py              # Manim video animation script
     └── system1_architecture.mmd           # Mermaid architecture diagram
 ```
 
