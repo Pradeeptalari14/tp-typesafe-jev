@@ -1,0 +1,35 @@
+graph TD
+    subgraph Ingestion["📥 High-Velocity Input Stream"]
+        REQ["Unstructured State\n(Alert / Ticket / User Query)"]
+    end
+
+    subgraph System1["⚡ TypeSafe AI Jev (System 1 Reflex)"]
+        JEV["Jev Non-Autoregressive Model\n(RLCD Calibrated Forward Pass)"]
+        LAT["Latency: 70ms - 100ms\nCost: $0.000078"]
+        CONF{"Calibrated Confidence >= 0.85?"}
+    end
+
+    subgraph FastPath["🚀 Immediate Deterministic Execution"]
+        TOOL["Deterministic Tool / API / DB"]
+        CACHE["Semantic Cache Response"]
+        OUT_FAST["Sub-100ms Instant Resolution\n(Zero Generative LLM Tokens)"]
+    end
+
+    subgraph System2["🧠 Deliberative Frontier Reasoning (System 2)"]
+        ESC["Escalation Reasoner Node\n(Claude 3.7 / GPT-4o)"]
+        DELIB["Multi-Step Thought Chain & Token Synthesis\n(Latency: ~2500ms | Cost: $0.0125)"]
+        OUT_SLOW["Synthesized Deep Reasoning Answer"]
+    end
+
+    REQ --> JEV
+    JEV --- LAT
+    JEV --> CONF
+    CONF -- "YES (Confident Reflex)" --> TOOL
+    TOOL --> CACHE --> OUT_FAST
+    CONF -- "NO (Ambiguous Edge Case)" --> ESC
+    ESC --> DELIB --> OUT_SLOW
+
+    style JEV fill:#ea580c,stroke:#c2410c,color:#ffffff,stroke-width:2px;
+    style CONF fill:#f59e0b,stroke:#d97706,color:#0f172a,stroke-width:2px;
+    style OUT_FAST fill:#10b981,stroke:#059669,color:#ffffff,stroke-width:2px;
+    style ESC fill:#8b5cf6,stroke:#7c3aed,color:#ffffff,stroke-width:2px;

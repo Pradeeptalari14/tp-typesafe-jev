@@ -1,0 +1,28 @@
+{
+  "name": "tp-typesafe-jev",
+  "version": "1.0.0",
+  "description": "Developer Studio repository for TypeSafe Jev: System 1 AI Studio. Category: ai.",
+  "main": "primary_config/system1_router.ts",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "typesafe-ai",
+    "jev",
+    "system-1",
+    "non-autoregressive",
+    "ai-router",
+    "sre"
+  ],
+  "author": "Talari Pradeep <talaripradeep14@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@typesafe-ai/jev-node": "^0.1.0",
+    "fastify": "^4.26.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.4.0"
+  }
+}

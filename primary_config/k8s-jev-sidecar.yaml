@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: typesafe-jev-dual-process-service
+  namespace: ai-platform
+  labels:
+    app.kubernetes.io/name: jev-system1-engine
+    ai.typesafe.com/cognitive-layer: system-1-reflex
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: jev-system1-engine
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: jev-system1-engine
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+        prometheus.io/path: "/metrics"
+    spec:
+      volumes:
+        - name: jev-ipc-socket
+          emptyDir: {}
+      containers:
+        # Container 1: Application Router Microservice
+        - name: app-router
+          image: ghcr.io/pradeeptalari14/hybrid-agent-router:v1.2.0
+          env:
+            - name: JEV_SOCKET_PATH
+              value: /var/run/jev/jev.sock
+            - name: JEV_ESCALATION_THRESHOLD
+              value: "0.85"
+            - name: SYSTEM2_FALLBACK_MODEL
+              value: "claude-3-7-sonnet"
+          volumeMounts:
+            - name: jev-ipc-socket
+              mountPath: /var/run/jev
+          resources:
+            requests:
+              cpu: 500m
+              memory: 512Mi
+            limits:
+              cpu: 2000m
+              memory: 2Gi
+
+        # Container 2: TypeSafe Jev System 1 Local Inference Sidecar
+        - name: jev-sidecar
+          image: typesafeai/jev-sidecar:2026.9.15
+          command: ["/bin/jev-server"]
+          args:
+            - "--socket=/var/run/jev/jev.sock"
+            - "--calibration=strict_rlcd"
+            - "--max-latency-sla=85ms"
+            - "--threads=4"
+          volumeMounts:
+            - name: jev-ipc-socket
+              mountPath: /var/run/jev
+          ports:
+            - containerPort: 9090
+              name: metrics
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 2Gi
+            limits:
+              cpu: 4000m
+              memory: 4Gi
+          livenessProbe:
+            exec:
+              command: ["/bin/jev-cli", "ping", "--socket=/var/run/jev/jev.sock"]
+            initialDelaySeconds: 3
+            periodSeconds: 5
