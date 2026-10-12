@@ -4,6 +4,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Category](https://img.shields.io/badge/Category-AI%20%26%20LLMOps-indigo.svg)](https://talaripradeep.info/tools/)
+[![Ecosystem](https://img.shields.io/badge/Portfolio%20Ecosystem-341%20Studios-6366f1.svg)](https://pradeeptalari.me/projects/)
+[![Architecture DAG](https://img.shields.io/badge/Architecture-DAG%20%26%20Course-10b981.svg)](https://pradeeptalari.me/tools/repo-learning/)
 [![Latency SLA](https://img.shields.io/badge/Latency-70ms--150ms%20P99-emerald.svg)](https://talaripradeep.info/tools/jev-system1/)
 [![Calibration](https://img.shields.io/badge/Calibration-RLCD%20Strict-amber.svg)](https://typesafe.ai)
 [![Architecture](https://img.shields.io/badge/Architecture-Non--Autoregressive-purple.svg)](https://talaripradeep.info/tools/jev-system1/)
@@ -180,3 +182,6 @@ tp-typesafe-jev/
 ---
 
 *Architected & Maintained by **[Talari Pradeep](https://talaripradeep.info/)** · AI Infrastructure & Platform SRE Lead*
+
+---
+*Synchronized with [TypeSafe Jev: System 1 AI Studio Studio](https://pradeeptalari.me/tools/jev-system1/) & [Repository Learning DAG](https://pradeeptalari.me/tools/repo-learning/) — [Talari Pradeep Portfolio](https://pradeeptalari.me)*
